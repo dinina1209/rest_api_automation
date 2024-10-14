@@ -1,5 +1,5 @@
 package pojo;
-
+import java.util.List;
 /*
 "courses" :{
         "webAutomation": [
@@ -38,26 +38,26 @@ package pojo;
         ]
 */
 public class Courses {
-	private String webAutomation;
-	private String api;
-	private String mobileAutomation;
+	private List<WebAutomation> webAutomation; //make it as a List of Object Array
+	private List<API> api;
+	private List<Mobile> mobileAutomation;
 	
-	public String getWebAutomation() {
+	public List<WebAutomation> getWebAutomation() {
 		return webAutomation;
 	}
-	public void setWebAutomation(String webAutomation) {
+	public void setWebAutomation(List<WebAutomation> webAutomation) {
 		this.webAutomation = webAutomation;
 	}
-	public String getApi() {
+	public List<API> getApi() {
 		return api;
 	}
-	public void setApi(String api) {
+	public void setApi(List<API> api) {
 		this.api = api;
 	}
-	public String getMobileAutomation() {
+	public List<Mobile> getMobileAutomation() {
 		return mobileAutomation;
 	}
-	public void setMobileAutomation(String mobileAutomation) {
+	public void setMobileAutomation(List<Mobile> mobileAutomation) {
 		this.mobileAutomation = mobileAutomation;
 	}
 	
