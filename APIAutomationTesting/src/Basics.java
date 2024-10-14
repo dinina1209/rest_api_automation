@@ -1,5 +1,6 @@
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
 
 public class Basics {
 
@@ -31,7 +32,14 @@ public class Basics {
 		// When - Submit the API - resource, http method
 		.when().post("maps/api/place/add/json")
 		// Then - Validate the response
-		.then().log().all().assertThat().statusCode(200);
+		.then().log().all().assertThat()
+		.statusCode(200)
+		//validate if body includes key(scope) and value(APP)
+		.body("scope", equalTo("APP"))
+		//validate if Header includes key(Server) and value(Apache/2.4.52 (Ubuntu))
+		.header("Server", "Apache/2.4.52 (Ubuntu)");
+		
+		//Task : Add place -> update place with new adds -> Get place to validate if new adds is added
 	}
 
 }
