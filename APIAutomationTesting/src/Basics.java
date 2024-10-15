@@ -6,6 +6,7 @@ import static org.hamcrest.Matchers.*;
 
 import org.testng.Assert;
 
+import files.ReusableMethods;
 import files.payload;
 
 public class Basics {
@@ -57,8 +58,9 @@ public class Basics {
 		.then().log().all().assertThat().statusCode(200)
 		.extract().response().asString();
 		
-		JsonPath js2 = new JsonPath(getPlaceResponse);
-		String actualAddress = js2.getString("address");
+		//JsonPath js2 = new JsonPath(getPlaceResponse);
+		JsonPath js1 = ReusableMethods.rawToJson(getPlaceResponse);
+		String actualAddress = js1.getString("address");
 		System.out.println(actualAddress);
 		
 		//Assert newAddress == actualAddress by using Cucumber Jnuit or TestNG
