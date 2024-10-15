@@ -4,6 +4,8 @@ import io.restassured.path.json.JsonPath;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
+import org.testng.Assert;
+
 import files.payload;
 
 public class Basics {
@@ -60,6 +62,7 @@ public class Basics {
 		System.out.println(actualAddress);
 		
 		//Assert newAddress == actualAddress by using Cucumber Jnuit or TestNG
+		Assert.assertEquals(actualAddress, newAddress);
 		
 		
 	}
