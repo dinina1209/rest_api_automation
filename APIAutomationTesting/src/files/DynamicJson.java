@@ -11,11 +11,11 @@ public class DynamicJson {
 	
 	//connect addBook data by using 'dataProvider'
 	@Test(dataProvider = "BooksData")
-	public void addBook() {
+	public void addBook(String isbn, String aisle) {
 		RestAssured.baseURI ="http://216.10.245.166";
 		
 		String response = given().header("Content-Type", "application/json")
-		.body(payload.AddBook("asd", "12334"))
+		.body(payload.AddBook(isbn, aisle))
 		.when().post("/Library/Addbook.php")
 		.then().assertThat().statusCode(200)
 		.extract().response().asString();
