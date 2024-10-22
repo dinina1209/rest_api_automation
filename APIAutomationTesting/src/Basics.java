@@ -4,6 +4,10 @@ import io.restassured.path.json.JsonPath;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import org.testng.Assert;
 
 import files.ReusableMethods;
@@ -11,15 +15,20 @@ import files.payload;
 
 public class Basics {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		//Validate if Add Place API is working as expected
 		//Task : Add place -> update place with new adds -> Get place to validate if new adds is added
 		RestAssured.baseURI = "https://rahulshettyacademy.com/";
 		
+
+		
+		
 		//Task1 ) Add Place
 		// Given - All input details - POST call
 		String response = given().log().all().queryParam("key", "qaclick123").header("Content-Type", "application/json")
-		.body(payload.AddPlace())
+		//.body(payload.AddPlace())
+		//Content of the file to String -> content of file can convert into Byte -> Byte data to String
+		.body(Files.readAllBytes(Paths.get("C:\\Users\\dna975\\OneDrive - The University of Auckland\\Desktop\\addPlace.json")))
 		// When - Submit the API - resource, http method
 		.when().post("maps/api/place/add/json")
 		// Then - Validate the response
