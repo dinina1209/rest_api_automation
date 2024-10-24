@@ -8,10 +8,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 import org.testng.Assert;
 
 import files.ReusableMethods;
@@ -32,7 +28,7 @@ public class Basics {
 		String response = given().log().all().queryParam("key", "qaclick123").header("Content-Type", "application/json")
 		//.body(payload.AddPlace())
 		//Content of the file to String -> content of file can convert into Byte -> Byte data to String
-		.body(Files.readAllBytes(Paths.get("C:\\Users\\Desktop\\addPlace.json")))
+		.body(Files.readAllBytes(Paths.get("C:\\Users\\dna975\\OneDrive - The University of Auckland\\Desktop\\addPlace.json")))
 		// When - Submit the API - resource, http method
 		.when().post("maps/api/place/add/json")
 		// Then - Validate the response
