@@ -3,6 +3,7 @@ package stepDefinitions;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.IOException;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -29,9 +30,9 @@ public class StepDefinition extends Utils{
 	Response response;
 	TestDataBuild data = new TestDataBuild();
 	
-	@Given("Add Place Payload")
-	public void add_Place_Payload() throws FileNotFoundException {
-		res = given().spec(requestSpecification()).body(data.addPlacePyaload());
+	@Given("Add Place payload with {string} {string} {string}")
+	public void add_Place_Payload_with(String name, String language, String address) throws IOException {
+		res = given().spec(requestSpecification()).body(data.addPlacePyaload(name, language, address));
 	}
 	
 	@When("user calls {string} with Post http request")
