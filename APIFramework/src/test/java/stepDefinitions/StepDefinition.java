@@ -36,8 +36,8 @@ public class StepDefinition extends Utils{
 		res = given().spec(requestSpecification()).body(data.addPlacePyaload(name, language, address));
 	}
 	
-	@When("user calls {string} with Post http request")
-	public void user_calls_with_Post_http_request(String resource) {
+	@When("user calls {string} with {string} http request")
+	public void user_calls_with_Post_http_request(String resource, String method) {
 		APIResources resourceAPI = APIResources.valueOf(resource);
 		
 		resSpec = new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
