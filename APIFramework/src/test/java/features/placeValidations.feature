@@ -5,8 +5,9 @@ Feature: Validating Place API's
     Then the API call got success with status code 200
     And "status" in response body is "OK"
     And "scope" in response body is "APP"
+    And verify place_Id created maps to "<name>" using "getPlaceAPI"
     
 Examples:
 	| name    | language   | address                   |
 	| AAHouse | English-EN | 29, side layout, cohen 09 |
-
+#  | BBHouse | Spanish-SP | Sea cross center					 |
